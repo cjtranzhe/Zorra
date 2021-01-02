@@ -12,6 +12,11 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="_Archive\Templates\CSS\Front – Multipurpose Responsive Template\" />
+    <Folder Include="_Archive\Templates\CSS\" />
+  </ItemGroup>
+
 
 
 </Project>
