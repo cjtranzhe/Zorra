@@ -43,10 +43,10 @@ namespace UI.Web
 
             app.UseRouting();
 
-            app.UseAuthorization();
-
             //https://docs.microsoft.com/en-us/aspnet/core/fundamentals/app-state?view=aspnetcore-3.1#session-state
             app.UseSession();//The order of middleware is important. Call UseSession after UseRouting and before UseEndpoints.
+
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
