@@ -12,7 +12,7 @@
     <link rel="shortcut icon" href="~/favicon.ico">
 
     <!-- Font -->
-    <link href="@@vars.googleFont" rel="stylesheet">
+    @*<link href="@@vars.googleFont" rel="stylesheet">*@
 
     <!-- CSS Implementing Plugins -->
     <!-- bundlecss:vendor [~] -->
@@ -29,6 +29,7 @@
 
 <body>
 
+    @*<partial name="~/Views/Shared/_Header.cshtml" />*@
     <header id="header" class="header header-box-shadow-on-scroll header-sticky-top header-show-hide"
             data-hs-header-options='{
             "fixMoment": 1000,
@@ -497,7 +498,6 @@
             </div>
         </div>
     </header>
-
     <main id="content" role="main">
         @RenderBody()
     </main>
