@@ -1,0 +1,61 @@
+﻿<div>
+    <div id="divLanding"></div>
+</div>
+<p>&nbsp;</p><p>&nbsp;</p>
+
+<nav class="navbar fixed-bottom navbar-expand-sm navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+            <li>
+                <a onclick="ShowComponent(this)" class="nav-link" href="#">Operation Disclosure</a>
+            </li>
+            <li>
+                <a onclick="ShowComponent(this)" class="nav-link" href="#">Restored Republic</a>
+            </li>
+            <li>
+                <a onclick="ShowComponent(this)" class="nav-link" href="#">RV Intel/Thoughts/News</a>
+            </li>
+            <li>
+                <a onclick="ShowComponent(this)" class="nav-link" href="#">Contact Us</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<script>
+    var AllComponents = [
+        "Landing",
+
+    ];
+
+    $(document).ready(function () {
+        //$.each(AllComponents, function (index, component) { $('#div' + component).load('/Home/LoadMain?component=' + component).hide(); });
+        //$('#div' + 'Landing').show(); $.post('/home/log?data=' + 'Home');
+
+        //var CommonSiteRoot = location.protocol + '//' + location.host; if (CommonSiteRoot.indexOf('localhost:') > 0) {
+        //    $('#div' + 'Landing').hide(); $('#div' + 'RestoredRepublic').show();
+        //}
+    });
+    function ShowComponent(item) {
+        item = item.text.replace(" ", "").replace(new RegExp('/', 'g'), '');
+        $.each(AllComponents, function (index, component) { $('#div' + component).hide(); });
+        $('#div' + item).show();
+        $("#inputKeywordOD").focus(); $("#inputKeywordRR").focus(); $("#inputKeywordTN").focus();
+        $.post('/home/log?data=' + item);
+    }
+    function CommonNavigate(item) { window.open(item, '_blank'); }
+    function CommonBuildLink(item, intelName) { return BuildLink_IntelHistory(item, intelName); }
+    function BuildLink_IntelHistory(item, intelName) {
+        var _month = item.split('-')[0]; if (_month.length == 1) { _month = '0' + _month; }
+        var _year = item.split('-')[2];
+        var fileName = _year + '-' + _month + '-' + item.split('-')[1] + ".html"
+        return Common_RootURL + 'Archives/' + intelName + "/" + _year + "/" + _month + "/" + fileName;
+    }
+    var Common_RootURL = "http://www.intelhistory.net/",
+        constRR = "restored-republic-via-gcr-update-as-of_",
+        constRR_S = "restored-republic-via-gcr-special_",
+        constOD = "operation-disclosure-gcrrv-intel-alert_",
+        constTN = 'rv-intelthoughtsnews-all-posts-for_';
+</script>

@@ -14,9 +14,10 @@
 </head>
 <body>
     <partial name="~/Views/Shared/_Header.cshtml" />
-    <main id="content" role="main">
-        @RenderBody()
-    </main>
+    @*<main id="content" role="main">
+            @RenderBody()
+        </main>*@
+    <div id="bodyLayout" class="container">@RenderBody()</div>
     <partial name="~/Views/Shared/_Footer.cshtml" />
     <script src="~/node_modules/jquery/dist/jquery.min.js"></script>
     <script src="~/node_modules/jquery-migrate/dist/jquery-migrate.min.js"></script>
